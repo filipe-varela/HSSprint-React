@@ -1,7 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { materialRenderers, materialCells, } from '@jsonforms/material-renderers';
+import React, { useEffect, useState } from 'react';
+import { JsonForms } from '@jsonforms/react';
+import uischema from './uischema.json';
+import schema from './schema.json';
 
 function App() {
+  const [displayDataAsString, setDisplayDataAsString] = useState('');
+  const [data, setData]  = useState({});
+  
+  useEffect(() => {
+    setDisplayDataAsString(JSON.stringify(data, null, 2))
+  }, [data]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +30,17 @@ function App() {
           Learn React
         </a>
       </header>
+      <JsonForms
+        schema={schema}
+        uischema={uischema}
+        data={data}
+        renderers={materialRenderers}
+        cells={materialCells}
+        onChange={({ _errors, data }) => setData(data)}
+        />
+      <div>
+        <pre id='boundData'>{displayDataAsString}</pre>
+      </div>
     </div>
   );
 }

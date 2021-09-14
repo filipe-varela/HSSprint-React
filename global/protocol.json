@@ -1,0 +1,48 @@
+{
+    "name": "project_name",
+    "description": "project_description",
+    "members": ["member1", "member2", "member3"],
+    "project_member": ["member1"],
+    "motivation_links": ["inspirational_links"],
+    "subjects": ["themes"],
+    "etc": "estimate_time_of_completion",
+    "initial_observations": [
+        "list_of_comments"
+    ],
+    "tasks": [
+        {
+            "name_task": "example_task_1",
+            "assignee": ["assignee1"],
+            "progress": [    
+                {
+                    "progress_1": []
+                }
+            ],
+            "sub_tasks": ["name_for_subtask"],
+            "problems": ["problem1"],
+            "feedback": ["feedback1"],
+            "status": "task_status",
+            "sprints": ["sprints_which_the_task_was_developed"],
+            "date_of_creation": "dd/mm/aaaa hh:MM:ss"
+        }
+    ],
+    "materials": [
+        {
+            "name": "name_of_material_example", 
+            "reference_link": "link_for_reference"
+        }
+    ],
+    "sprints": [
+        {
+            "name": "sprint_example_1",
+            "description": "sprint_description",
+            "intervale_date": "dd/mm/aaaa hh:MM:ss - dd/mm/aaaa hh:MM:ss",
+            "added": ["list_of_tasks_added_in_this_sprint"],
+            "doing": ["list_of_tasks_on_doing_in_this_sprint"],
+            "done": ["list_of_tasks_were_done_in_this_sprint"],
+            "onhold": ["list_of_tasks_put_onhold_in_this_sprint"],
+            "deprecated": ["list_of_tasks_deprecated_in_this_sprint"],
+            "observations": ["more_info_to_the_sprint"]
+        }
+    ]
+}

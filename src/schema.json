@@ -1,0 +1,38 @@
+{
+    "properties": {
+        "initial-report": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "subject": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "members": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties":{
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
