@@ -1,6 +1,121 @@
 {
+    "type": "object",
     "properties": {
-        "initial-report": {
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string",
+            "multiLine": true
+        },
+        "members": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "project_member": {
+            "type": "string"
+        },
+        "motivation_links": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "subjects": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "initial_observations": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "etc": {
+            "type": "string"
+        },
+        "tasks" : {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name_task": {
+                        "type": "string"
+                    },
+                    "assignee": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "sub-tasks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "problems": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "feedbacks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "todo",
+                            "doing",
+                            "done",
+                            "onhold",
+                            "deprecated"
+                        ]
+                    },
+                    "sprints": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "date_of_creation": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "materials": {
+            "type": "array",
+            "items":{
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "reference_link": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "sprints": {
             "type": "array",
             "items": {
                 "type": "object",
@@ -8,28 +123,62 @@
                     "name": {
                         "type": "string"
                     },
-                    "description": {
+                    "description":{
                         "type": "string"
                     },
-                    "subject": {
+                    "intervale_date": {
                         "type": "string"
-                    }
-                }
-            }
-        },
-        "name": {
-            "type": "string"
-        },
-        "description": {
-            "type": "string"
-        },
-        "members": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties":{
-                    "name": {
-                        "type": "string"
+                    },
+                    "added": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "doing": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "done": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "onhold": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "deprecated": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "$data"
+                            ]
+                        }
+                    },
+                    "observations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             }

@@ -2,7 +2,7 @@
     "name": "project_name",
     "description": "project_description",
     "members": ["member1", "member2", "member3"],
-    "project_member": ["member1"],
+    "project_member": "member1",
     "motivation_links": ["inspirational_links"],
     "subjects": ["themes"],
     "etc": "estimate_time_of_completion",
