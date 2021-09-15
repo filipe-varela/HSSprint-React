@@ -2,28 +2,62 @@
     "type": "Group",
     "label": "Initial Report",
     "elements" : [
-      {
-          "type": "Control",
-          "scope": "#/properties/name"
-      },
-      {
-          "type": "Control",
-          "scope": "#/properties/description"
-      },
-      {
-          "type":"VerticalLayout",
-          "elements": [
-              {
-                  "type":"Control",
-                  "scope": "#/properties/members",
-                  "options":{
-                      
-                  },
-                  "rules": {
-
-                  }
-              }
-          ]
-      }
+        {
+            "type": "Group",
+            "label": "Initial Information",
+            "elements": [
+                {
+                    "type": "Control",
+                    "scope": "#/properties/name"
+                },
+                {
+                    "type": "Control",
+                    "scope": "#/properties/description",
+                    "options": {
+                        "multi": true
+                    }
+                },
+                {
+                    "type":"Group",
+                    "label": "Members",
+                    "elements":[
+                        {
+                            "type":"Control",
+                            "scope": "#/properties/members"
+                        }
+                    ]
+                },
+                {
+                    "type": "Control",
+                    "scope": "#/properties/etc"
+                }
+            ]
+        },
+        {
+            "type":"Group",
+            "label": "Tasks",
+            "elements": [
+                {
+                    "type":"Control",
+                    "scope": "#/properties/tasks",
+                    "options": {
+                        "elementLabelProp": "name_task",
+                        "detail": {
+                            "type": "VerticalLayout",
+                            "elements": [
+                                {
+                                    "type": "Control",
+                                    "scope": "#/properties/name_task"
+                                },
+                                {
+                                    "type": "Control",
+                                    "scope": "#/properties/assignee"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
     ]
 }

@@ -5,6 +5,15 @@ import React, { useEffect, useState } from 'react';
 import { JsonForms } from '@jsonforms/react';
 import uischema from './uischema.json';
 import schema from './schema.json';
+import CustomGroupRenderer, { CustomGroupTester } from './CustomGroup';
+
+const renderers = [
+  ...materialRenderers, 
+  {
+    tester: CustomGroupTester,
+    renderer: CustomGroupRenderer,
+  }
+];
 
 function App() {
   const [displayDataAsString, setDisplayDataAsString] = useState('');
@@ -34,7 +43,7 @@ function App() {
         schema={schema}
         uischema={uischema}
         data={data}
-        renderers={materialRenderers}
+        renderers={renderers}
         cells={materialCells}
         onChange={({ _errors, data }) => setData(data)}
         />
