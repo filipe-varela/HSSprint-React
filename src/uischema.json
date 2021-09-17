@@ -1,14 +1,14 @@
 {
-    "type": "Group",
-    "label": "Initial Report",
+    "type": "Categorization",
     "elements" : [
         {
-            "type": "Group",
+            "type": "Category",
             "label": "Initial Information",
             "elements": [
                 {
                     "type": "Control",
-                    "scope": "#/properties/name"
+                    "scope": "#/properties/name",
+                    "label": "Project Name"
                 },
                 {
                     "type": "Control",
@@ -23,19 +23,30 @@
                     "elements":[
                         {
                             "type":"Control",
-                            "scope": "#/properties/members"
+                            "scope": "#/properties/members",
+                            "label": "Choose your members here! By default, the first member is considered the project manager"
                         }
                     ]
                 },
                 {
                     "type": "Control",
-                    "scope": "#/properties/etc"
+                    "scope": "#/properties/etc",
+                    "label": "Estimate Time of Completion (ETC)"
                 }
             ]
         },
         {
-            "type":"Group",
+            "type":"Category",
             "label": "Tasks",
+            "rule": {
+                "effect": "HIDE",
+                "condition": {
+                    "scope": "#/properties/etc",
+                    "schema": {
+                        "const": ""
+                    }
+                }
+            },
             "elements": [
                 {
                     "type":"Control",
@@ -46,12 +57,52 @@
                             "type": "VerticalLayout",
                             "elements": [
                                 {
-                                    "type": "Control",
-                                    "scope": "#/properties/name_task"
+                                    "type": "HorizontalLayout",
+                                    "elements": [
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/name_task"
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/status"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "type": "Control",
-                                    "scope": "#/properties/assignee"
+                                    "type": "HorizontalLayout",
+                                    "elements": [
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/assignee"
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/sub_tasks",
+                                            "rule": {
+                                                "effect": "HIDE",
+                                                "condition": {
+                                                    "scope": "#/properties/status",
+                                                    "schema": {
+                                                        "const": "DONE"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/problems",
+                                            "rule": {
+                                                "effect": "HIDE",
+                                                "condition": {
+                                                    "scope": "#/properties/status",
+                                                    "schema": {
+                                                        "const": "DONE"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -59,5 +110,9 @@
                 }
             ]
         }
-    ]
+    ],
+    "options": {
+        "variant": "stepper",
+        "showNavButtons": true
+    }
 }

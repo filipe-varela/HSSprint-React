@@ -55,7 +55,7 @@
                             ]
                         }
                     },
-                    "sub-tasks": {
+                    "sub_tasks": {
                         "type": "array",
                         "items": {
                             "type": "string",
@@ -70,7 +70,7 @@
                             "type": "string"
                         }
                     },
-                    "feedbacks": {
+                    "feedback": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -79,11 +79,11 @@
                     "status": {
                         "type": "string",
                         "enum": [
-                            "todo",
-                            "doing",
-                            "done",
-                            "onhold",
-                            "deprecated"
+                            "TO DO",
+                            "DOING",
+                            "DONE",
+                            "ONHOLD",
+                            "DEPRECATED"
                         ]
                     },
                     "sprints": {

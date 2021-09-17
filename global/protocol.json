@@ -2,7 +2,7 @@
     "name": "project_name",
     "description": "project_description",
     "members": ["member1", "member2", "member3"],
-    "project_member": "member1",
+    "project_manager": "member1",
     "motivation_links": ["inspirational_links"],
     "subjects": ["themes"],
     "etc": "estimate_time_of_completion",
@@ -34,7 +34,7 @@
     ],
     "sprints": [
         {
-            "name": "sprint_example_1",
+            "sprint_number": 1,
             "description": "sprint_description",
             "intervale_date": "dd/mm/aaaa hh:MM:ss - dd/mm/aaaa hh:MM:ss",
             "added": ["list_of_tasks_added_in_this_sprint"],
