@@ -26,7 +26,18 @@
         "subjects": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                    "WebDev",
+                    "WebServer",
+                    "AppDev",
+                    "3DMod/Print",
+                    "Micro-controller",
+                    "Raspberry Pi",
+                    "Software Development",
+                    "Outsource",
+                    "Electronics"
+                ]
             }
         },
         "initial_observations": {
@@ -51,7 +62,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },
@@ -60,7 +71,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },
@@ -91,7 +102,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },
@@ -110,7 +121,8 @@
                         "type": "string"
                     },
                     "reference_link": {
-                        "type": "string"
+                        "type": "string",
+                        "default": ""
                     }
                 }
             }
@@ -120,8 +132,8 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "name": {
-                        "type": "string"
+                    "sprint_number": {
+                        "type": "integer"
                     },
                     "description":{
                         "type": "string"
@@ -134,7 +146,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },
@@ -143,7 +155,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },
@@ -152,7 +164,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },
@@ -161,7 +173,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },
@@ -170,7 +182,7 @@
                         "items": {
                             "type": "string",
                             "enum": [
-                                "$data"
+                                ""
                             ]
                         }
                     },

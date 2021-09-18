@@ -29,6 +29,28 @@
                     ]
                 },
                 {
+                    "type":"Group",
+                    "label": "Motivation Links",
+                    "elements": [
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/motivation_links",
+                            "label": ""
+                        }
+                    ]
+                },
+                {
+                    "type":"Group",
+                    "label": "Project Themes",
+                    "elements": [
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/subjects",
+                            "label": ""
+                        }
+                    ]
+                },
+                {
                     "type": "Control",
                     "scope": "#/properties/etc",
                     "label": "Estimate Time of Completion (ETC)"
@@ -37,20 +59,39 @@
         },
         {
             "type":"Category",
-            "label": "Tasks",
-            "rule": {
-                "effect": "HIDE",
-                "condition": {
-                    "scope": "#/properties/etc",
-                    "schema": {
-                        "const": ""
+            "label": "Material",
+            "elements": [
+                {
+                    "type":"Control",
+                    "scope":"#/properties/materials",
+                    "options": {
+                        "elementLabelProp": "name",
+                        "detail": {
+                            "type": "HorizontalLayout",
+                            "elements": [
+                                {
+                                    "type": "Control",
+                                    "scope": "#/properties/name"
+                                },
+                                {
+                                    "type": "Control",
+                                    "scope": "#/properties/reference_link"
+                                }
+
+                            ]
+                        }
                     }
                 }
-            },
+            ]
+        },
+        {
+            "type":"Category",
+            "label": "Tasks",
             "elements": [
                 {
                     "type":"Control",
                     "scope": "#/properties/tasks",
+                    "label": "Add here the project tasks! It's recommended to add the subtasks first and then the main tasks.",
                     "options": {
                         "elementLabelProp": "name_task",
                         "detail": {
@@ -107,6 +148,105 @@
                             ]
                         }
                     }
+                }
+            ],
+            "rule": {
+                "effect": "HIDE",
+                "condition": {
+                    "scope": "#/properties/etc",
+                    "schema": {
+                        "const": ""
+                    }
+                }
+            }
+        },
+        {
+            "type":"Category",
+            "label": "Sprints",
+            "rule": {
+                "effect": "HIDE",
+                "condition": {
+                    "scope": "#/properties/tasks/",
+                    "schema": {
+                        "const": []
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "type":"Control",
+                    "scope":"#/properties/sprints",
+                    "label": "Fill out the sprints that you know you're going to do, leave the others for later",
+                    "options": {
+                        "elementLabelProp": "intervale_date",
+                        "detail": {
+                            "type": "VerticalLayout",
+                            "elements": [
+                                {
+                                    "type": "HorizontalLayout",
+                                    "elements": [
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/sprint_number"
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/description",
+                                            "label": "Description (optional)"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "HorizontalLayout",
+                                    "elements": [        
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/added"
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/doing"
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/done"
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/onhold"
+                                        },
+                                        {
+                                            "type": "Control",
+                                            "scope": "#/properties/deprecated"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Control",
+                                    "scope":"#/properties/observations"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "type":"Category",
+            "label": "Initial Observations",
+            "rule": {
+                "effect": "HIDE",
+                "condition": {
+                    "scope": "#/properties/tasks",
+                    "schema": {
+                        "const": []
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "type":"Control",
+                    "scope":"#/properties/initial_observations"
                 }
             ]
         }

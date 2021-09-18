@@ -71,11 +71,20 @@ function App() {
           renderers={renderers}
           cells={materialCells}
           onChange={({ _errors, data }) => {
-            data.name = data.name.trim()
-            data.description = data.description.trim()
+            if (data.name !== undefined) {
+              data.name = data.name.trim(); 
+            }
+            if (data.description !== undefined) {
+              data.description = data.description.trim(); 
+            }
+            if (data.etc !== undefined) {
+              data.etc = data.etc.trim(); 
+            }
             if (data.members.length) {
               for (let i = 0; i < data.members.length; i++) {
-                data.members[i] = data.members[i].trim();
+                if (data.members[i] !== undefined) {
+                  data.members[i] = data.members[i].trim(); 
+                }
               }
               schema.properties.tasks.items.properties.assignee.items.enum = data.members;
               data.project_manager = data.members[0];
@@ -83,19 +92,50 @@ function App() {
             if (data.tasks.length) {
               var task = data.tasks[0];
               if ("name_task" in task) {
+                var added = [], doing = [], done = [], onhold = [], deprecated = [];
                 for (let i = 0; i < data.tasks.length; i++) {
-                  schema.properties.tasks.items.properties.sub_tasks.items.enum[i] = data.tasks[i].name_task; 
+                  schema.properties.tasks.items.properties.sub_tasks.items.enum[i] = data.tasks[i].name_task;
+                  switch (data.tasks[i].status) {
+                    case "TO DO":
+                      added.push(data.tasks[i].name_task);
+                      break;
+                    case "DOING":
+                      doing.push(data.tasks[i].name_task);
+                      break;
+                    case "DONE":
+                      done.push(data.tasks[i].name_task);
+                      break;
+                    case "ONHOLD":
+                      onhold.push(data.tasks[i].name_task);
+                      break;
+                    case "DEPRECATED":
+                      deprecated.push(data.tasks[i].name_task);
+                      break;
+                    default:
+                      break;
+                  }
                 }
+                schema.properties.sprints.items.properties.added.items.enum = added;
+                schema.properties.sprints.items.properties.doing.items.enum = doing;
+                schema.properties.sprints.items.properties.done.items.enum = done;
+                schema.properties.sprints.items.properties.onhold.items.enum = onhold;
+                schema.properties.sprints.items.properties.deprecated.items.enum = deprecated;
                 console.log(schema.properties.tasks.items.properties.sub_tasks.items.enum);
               }
             }
-            // console.log(schema["properties"]["tasks"]["items"]["properties"]["assignee"]["items"]["enum"]);
             setData(data);
           }}
           />
       </div>
       <div className={classes.dataContent}>
         <pre id='boundData'>{displayDataAsString}</pre>
+      </div>
+      <div>
+        <a className={classes.resetButton} href={`data:text/json;charset=utf-8,${encodeURIComponent(displayDataAsString)}`} download="project.json">
+          <button>
+            {`Download Json`}
+          </button>
+        </a>
       </div>
     </div>
   );

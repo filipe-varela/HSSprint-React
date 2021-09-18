@@ -1,8 +1,21 @@
-import { rankWith, uiTypeIs } from "@jsonforms/core";
-import { MaterialLayoutRenderer } from "@jsonforms/material-renderers";
-import { MaterialArrayControlRenderer } from "@jsonforms/material-renderers/lib/complex/MaterialArrayControlRenderer";
-import { withJsonFormsLayoutProps } from "@jsonforms/react";
-import React from "react";
+import * as React from 'react';
+import { useJsonForms, withJsonFormsControlProps } from '@jsonforms/react';
+import { MaterialInputControl, MuiSelect } from '@jsonforms/material-renderers';
+import { isEnumControl, rankWith, scopeEndsWith } from '@jsonforms/core';
+import { CustomSelector } from './CustomSelector';
+
+const CustomMembersEnumRenderer = (props) => {
+    const context = useJsonForms();
+
+    const members = context.core.data.members;
+
+    return (
+        <MaterialInputControl {...members} input={CustomSelector}/>
+    );
+};
+
+export default withJsonFormsControlProps(CustomMembersEnumRenderer);
+export const CustomMembersEnumTester = rankWith(1000, scopeEndsWith('assignee'));
 
 // interface MembersControlProps {
 //     data: any;
