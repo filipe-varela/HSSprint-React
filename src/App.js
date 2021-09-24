@@ -127,9 +127,9 @@ function App() {
           }}
           />
       </div>
-      <div className={classes.dataContent}>
+      {/* <div className={classes.dataContent}>
         <pre id='boundData'>{displayDataAsString}</pre>
-      </div>
+      </div> */}
       <div>
         <a className={classes.resetButton} href={`data:text/json;charset=utf-8,${encodeURIComponent(displayDataAsString)}`} download="project.json">
           <button>
