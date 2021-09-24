@@ -9,23 +9,25 @@
     "initial_observations": [
         "list_of_comments"
     ],
-    "tasks": [
-        {
-            "name_task": "example_task_1",
+    "tasks": {
+        "task1": {
             "assignee": ["assignee1"],
-            "progress": [    
-                {
-                    "progress_1": []
-                }
-            ],
             "sub_tasks": ["name_for_subtask"],
-            "problems": ["problem1"],
-            "feedback": ["feedback1"],
+            "problems":
+            {
+                "sprint_number1": ["problem1"],
+                "sprint_number2": ["problem2"]
+            },
+            "feedback": 
+            {
+                "sprint_number1": ["feedback1.1"],
+                "sprint_number2": ["feedback2.1"]
+            },
             "status": "task_status",
             "sprints": ["sprints_which_the_task_was_developed"],
             "date_of_creation": "dd/mm/aaaa hh:MM:ss"
         }
-    ],
+    },
     "materials": [
         {
             "name": "name_of_material_example", 
@@ -42,7 +44,8 @@
             "done": ["list_of_tasks_were_done_in_this_sprint"],
             "onhold": ["list_of_tasks_put_onhold_in_this_sprint"],
             "deprecated": ["list_of_tasks_deprecated_in_this_sprint"],
-            "observations": ["more_info_to_the_sprint"]
+            "observations": ["more_info_to_the_sprint"],
+            "sprints_id": 123456789
         }
     ]
 }
