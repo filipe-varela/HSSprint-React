@@ -85,8 +85,34 @@
             ]
         },
         {
+            "type": "Category",
+            "label": "Name of tasks",
+            "elements": [
+                {
+                    "type": "Control",
+                    "scope": "#/properties/tasks",
+                    "options": {
+                        "elementLabelProp": "name_task",
+                        "detail": {
+                            "type": "Control",
+                            "scope": "#/properties/name_task"
+                        }
+                    }
+                }
+            ],
+            "rule": {
+                "effect": "HIDE",
+                "condition": {
+                    "scope": "#/properties/etc",
+                    "schema": {
+                        "const": ""
+                    }
+                }
+            }
+        },
+        {
             "type":"Category",
-            "label": "Tasks",
+            "label": "More information on Tasks",
             "elements": [
                 {
                     "type":"Control",
@@ -153,9 +179,9 @@
             "rule": {
                 "effect": "HIDE",
                 "condition": {
-                    "scope": "#/properties/etc",
+                    "scope": "#/properties/tasks/",
                     "schema": {
-                        "const": ""
+                        "const": []
                     }
                 }
             }

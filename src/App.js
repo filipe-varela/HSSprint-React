@@ -27,12 +27,25 @@ const useStyles = makeStyles((_theme) => ({
     marginBottom: '1rem',
   },
   resetButton: {
+    padding: "14px 18px",
+    background: "#0e9553",
+    borderRadius: "10px",
+    color: "white",
+    border: "2px solid #6dba83",
     margin: 'auto',
-    display: 'block',
+    display: 'block'
+  },
+  resetButtonHidden: {
+    margin: 'auto',
+    display: 'none',
   },
   demoform: {
     margin: 'auto',
     padding: '2rem',
+  },
+  divAdapted: {
+    display: "flex",
+    justifyContent: "center"
   }
 }));
 
@@ -50,6 +63,7 @@ function App() {
   const classes = useStyles();
   const [displayDataAsString, setDisplayDataAsString] = useState('');
   const [data, setData]  = useState(initial_data);
+  const [showDownloadButton, setShowDownloadButton] = useState(false);
   
   useEffect(() => {
     setDisplayDataAsString(JSON.stringify(data, null, 2))
@@ -122,7 +136,11 @@ function App() {
                 schema.properties.sprints.items.properties.deprecated.items.enum = deprecated;
                 console.log(schema.properties.tasks.items.properties.sub_tasks.items.enum);
               }
+              setShowDownloadButton(true);
+            } else {
+              setShowDownloadButton(false);
             }
+            console.log(showDownloadButton);
             setData(data);
           }}
           />
@@ -130,9 +148,9 @@ function App() {
       {/* <div className={classes.dataContent}>
         <pre id='boundData'>{displayDataAsString}</pre>
       </div> */}
-      <div>
-        <a className={classes.resetButton} href={`data:text/json;charset=utf-8,${encodeURIComponent(displayDataAsString)}`} download="project.json">
-          <button>
+      <div className={classes.divAdapted}>
+        <a href={`data:text/json;charset=utf-8,${encodeURIComponent(displayDataAsString)}`} download="project.json">
+          <button className={showDownloadButton ? classes.resetButton : classes.resetButtonHidden} >
             {`Download Json`}
           </button>
         </a>
